@@ -8,6 +8,8 @@ import Foundation
  
  */
 
+print("_________ Home Task 3 _ Part 1: Потік керування - Цикли ________\n\n")
+
 /*
  
  Розділ 1 - Потік керування
@@ -65,8 +67,8 @@ for productIndex in 0 ..< cart.count {
     print("--------------------------------------------------------")
 }
 
-// Цикл For in
-print("\nTask 1.1 - Цикл For in:\n")
+// Цикл For in (additional solution)
+print("\n\nTask 1.1 - Цикл For in (additional solution):\n")
 
 for (index, item) in cart.enumerated() {
     print("---------------------------\(index + 1)---------------------------")
@@ -75,8 +77,8 @@ for (index, item) in cart.enumerated() {
     print("--------------------------------------------------------")
 }
 
-// Func Map
-print("\nTask 1.1 - Func Map:\n")
+// Func Map (additional solution)
+print("\n\nTask 1.1 - Func Map (additional solution):\n")
 
 cart.enumerated().map {
     print("--------------------------\($0 + 1)---------------------------")
@@ -187,6 +189,8 @@ repeat {
  
  */
 
+print("\n\n\n\n_________ Home Task 3 _ Part 1: Потік керування - If / if else ________\n\n")
+
 /*
  
  Пункт 1.5
@@ -208,7 +212,17 @@ repeat {
     ------------------------------------------------------
  */
 
+// If / if else
+print("\n\nTask 1.4 - If / if else:\n")
 
+for (index, item) in cart.enumerated() {
+    if item.1 < 5000.0 && item.3 == "s1151" {
+        print("---------------------------\(index + 1)---------------------------")
+        print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+        print("Сокет: \(item.3)")
+        print("--------------------------------------------------------")
+    }
+}
 
 
 
