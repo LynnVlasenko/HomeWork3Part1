@@ -63,7 +63,7 @@ print("\nTask 1.1 - Цикл For:\n")
 for productIndex in 0 ..< cart.count {
     print("---------------------------\(productIndex + 1)---------------------------")
     print("Назва товару: \(cart[productIndex].0), Ціна: \(String(format: "%.2f", cart[productIndex].1)) \(cart[productIndex].2)")
-    print("Сокет: \(cart[productIndex].3), Процессор: \(cart[productIndex].4)")
+    print("Сокет: \(cart[productIndex].3), Процесор: \(cart[productIndex].4)")
     print("--------------------------------------------------------")
 }
 
@@ -73,7 +73,7 @@ print("\n\nTask 1.1 - Цикл For in (additional solution):\n")
 for (index, item) in cart.enumerated() {
     print("---------------------------\(index + 1)---------------------------")
     print("Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
-    print("Сокет: \(item.3), Процессор: \(item.4)")
+    print("Сокет: \(item.3), Процесор: \(item.4)")
     print("--------------------------------------------------------")
 }
 
@@ -83,7 +83,7 @@ print("\n\nTask 1.1 - Func Map (additional solution):\n")
 cart.enumerated().map {
     print("--------------------------\($0 + 1)---------------------------")
     print("Назва товару: \($1.0), Ціна: \(String(format: "%.2f", $1.1)) \($1.2)")
-    print("Сокет: \($1.3), Процессор: \($1.4)")
+    print("Сокет: \($1.3), Процесор: \($1.4)")
     print("--------------------------------------------------------")
 }
 
@@ -112,7 +112,7 @@ print("\n\n\nTask 1.2 - Цикл For in:\n")
 for (index, item) in cart.enumerated() {
     print("---------------------------\(index + 1)---------------------------")
     print("Назва товару: \(item.0)")
-    print("Процессор: \(item.4)")
+    print("Процесор: \(item.4)")
     print("--------------------------------------------------------")
 }
 
@@ -535,6 +535,8 @@ print("-----------------------------------------------------")
  
  */
 
+print("\n\n\n\n_________ Home Task 3 _ Part 4: Структури і класи ________\n\n")
+
 /*
  
  Пункт 4.1
@@ -548,11 +550,19 @@ print("-----------------------------------------------------")
  
  */
 
+print("\n\nTask 4.1 - Struct:\n")
 
+struct MotherBoard {
+    var socet: String = "sAM4"
+    var processor: ProcessorType = .amd
+}
 
+var newMotherBoard = MotherBoard()
+newMotherBoard.socet = "s1151"
+newMotherBoard.processor = .intel
 
-
-
+print("Сокет: \(newMotherBoard.socet), Процесор: \(newMotherBoard.processor.rawValue)")
+print("-----------------------------------------------------")
 /*
  
  Пункт 4.2
@@ -567,3 +577,20 @@ print("-----------------------------------------------------")
  створити змінну типу Product і спробувати поміняти їй інші значення
  
  */
+
+print("\n\nTask 4.2 - Class:\n")
+
+class Product {
+    var name: String = "ASRock H310CV-HDV"
+    var price: Double = 1717.0
+    var currency: Currency = .uah
+    var motherBoard: MotherBoard = newMotherBoard
+}
+
+var newProduct = Product()
+
+newProduct.motherBoard.socet = "s1152"
+newProduct.price = 2050.0
+print("Назва товару: \(newProduct.name), Ціна: \(newProduct.price) \(newProduct.currency)")
+print("Сокет: \(newProduct.motherBoard.socet), Процесор: \(newProduct.motherBoard.processor.rawValue)")
+print("-----------------------------------------------------")
