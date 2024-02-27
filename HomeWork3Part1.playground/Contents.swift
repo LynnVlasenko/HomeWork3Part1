@@ -273,7 +273,7 @@ print("\n\n\n\n_________ Home Task 3 _ Part 1: Потік керування - S
  */
 
 print("\n\nTask 1.6 - Switch:")
-print("Дефолтним значення виводжу сповіщення, щоб зорієнтувати користувача, щодо наявних відеокарт у корзині:\n\n")
+//print("Дефолтним значенням виводжу сповіщення, щоб зорієнтувати користувача, щодо наявних відеокарт у корзині:\n\n")
 
 let processorStringValue = "AMDn"
 
@@ -318,7 +318,9 @@ default:
     // друкуємо повідомлення, якщо користувач, шукатиме у корзині відеокарту з процесором, яку ще не додав
     // або якої немає в магазині:
     // інформуємо користувача - відеокарти з якими процесорами присутні наразі у корзині.
+    print("---------------------------Значення не знайдено---------------------------")
     print("Наразі у кошику лише відеокарти з процесором \(processorsString)- оберіть одну з них для пошуку")
+    print("--------------------------------------------------------------------------")
 }
 
 /*
@@ -412,7 +414,7 @@ func printProductInfoWith(maxPrice: Double) {
             print("\(index + 1) Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
         }
     }
-    print("--------------------------------------------------")
+    print("--------------------------------------------------------------------------")
 }
 
 printProductInfoWith(maxPrice: 4500)
@@ -442,6 +444,7 @@ printProductInfoWith(maxPrice: 4500)
  */
 
 print("\n\nTask 2.3 - Funtions:\n")
+// Not sure that the solution for task 2.3 is the most optimal. Try to improve it or contact a mentor.
 
 func print2TheMostExpensiveProductWith(processor: String) {
     
@@ -474,6 +477,8 @@ print2TheMostExpensiveProductWith(processor: "AMD")
  
  */
 
+print("\n\n\n\n_________ Home Task 3 _ Part 3: Enum ________\n\n")
+
 /*
  
  Пункт 3.1
@@ -486,9 +491,17 @@ print2TheMostExpensiveProductWith(processor: "AMD")
  
  */
 
+print("\n\nTask 3.1 - Enum:\n")
 
+enum ProcessorType: String {
+    case intel = "Intel"
+    case amd = "AMD"
+}
 
+let myProcessor: ProcessorType = .intel
+print(myProcessor.rawValue)
 
+print("-----------------------------------------------------")
 
 
 /*
@@ -503,10 +516,18 @@ print2TheMostExpensiveProductWith(processor: "AMD")
  створити змінну типу створенного enum з якимось із значень
  
  */
+print("\n\nTask 3.2 - Enum:\n")
 
+enum Currency: String {
+    case uah = "UAH"
+    case usd = "USD"
+    case eur = "EUR"
+}
 
+let currency: Currency = .uah
+print(currency.rawValue)
 
-
+print("-----------------------------------------------------")
 
 /*
  
