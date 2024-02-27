@@ -55,8 +55,35 @@ let cart: [ProductInfo] = [
     ------------------------------------------------------
  */
 
+// Цикл For
+print("\nTask 1.1 - Цикл For:\n")
 
+for productIndex in 0 ..< cart.count {
+    print("---------------------\(productIndex + 1)---------------------")
+    print("Назва товару: \(cart[productIndex].0), Ціна: \(cart[productIndex].1) \(cart[productIndex].2)")
+    print("Сокет: \(cart[productIndex].3), Процессор: \(cart[productIndex].4)")
+    print("--------------------------------------------")
+}
 
+// Цикл For in
+print("\nTask 1.1 - Цикл For in:\n")
+
+for (index, item) in cart.enumerated() {
+    print("---------------------\(index + 1)---------------------")
+    print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+    print("Сокет: \(item.3), Процессор: \(item.4)")
+    print("--------------------------------------------")
+}
+
+// Func Map
+print("\nTask 1.1 - Func Map:\n")
+
+cart.enumerated().map {
+    print("---------------------\($0 + 1)---------------------")
+    print("Назва товару: \($1.0), Ціна: \($1.1) \($1.2)")
+    print("Сокет: \($1.3), Процессор: \($1.4)")
+    print("--------------------------------------------")
+}
 
 
 /*
@@ -77,7 +104,15 @@ let cart: [ProductInfo] = [
  */
 
 
+// Цикл For in
+print("\nTask 1.2 - Цикл For in:\n")
 
+for (index, item) in cart.enumerated() {
+    print("---------------------\(index + 1)---------------------")
+    print("Назва товару: \(item.0)")
+    print("Процессор: \(item.4)")
+    print("--------------------------------------------")
+}
 
 
 /*
