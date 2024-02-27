@@ -62,7 +62,7 @@ print("\nTask 1.1 - Цикл For:\n")
 
 for productIndex in 0 ..< cart.count {
     print("---------------------------\(productIndex + 1)---------------------------")
-    print("Назва товару: \(cart[productIndex].0), Ціна: \(cart[productIndex].1) \(cart[productIndex].2)")
+    print("Назва товару: \(cart[productIndex].0), Ціна: \(String(format: "%.2f", cart[productIndex].1)) \(cart[productIndex].2)")
     print("Сокет: \(cart[productIndex].3), Процессор: \(cart[productIndex].4)")
     print("--------------------------------------------------------")
 }
@@ -72,7 +72,7 @@ print("\n\nTask 1.1 - Цикл For in (additional solution):\n")
 
 for (index, item) in cart.enumerated() {
     print("---------------------------\(index + 1)---------------------------")
-    print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+    print("Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
     print("Сокет: \(item.3), Процессор: \(item.4)")
     print("--------------------------------------------------------")
 }
@@ -82,7 +82,7 @@ print("\n\nTask 1.1 - Func Map (additional solution):\n")
 
 cart.enumerated().map {
     print("--------------------------\($0 + 1)---------------------------")
-    print("Назва товару: \($1.0), Ціна: \($1.1) \($1.2)")
+    print("Назва товару: \($1.0), Ціна: \(String(format: "%.2f", $1.1)) \($1.2)")
     print("Сокет: \($1.3), Процессор: \($1.4)")
     print("--------------------------------------------------------")
 }
@@ -142,7 +142,7 @@ var whileCounter = 0
 while whileCounter < cart.count {
     print("------------------------\(whileCounter + 1)------------------------")
     print("Назва товару: \(cart[whileCounter].0)")
-    print("Ціна: \(cart[whileCounter].1) \(cart[whileCounter].2)")
+    print("Ціна: \(String(format: "%.2f", cart[whileCounter].1)) \(cart[whileCounter].2)")
     print("--------------------------------------------------")
     whileCounter += 1
 }
@@ -218,7 +218,7 @@ print("\n\nTask 1.5 - If / if else:\n")
 for (index, item) in cart.enumerated() {
     if item.1 < 5000.0 && item.3 == "s1151" {
         print("---------------------------\(index + 1)---------------------------")
-        print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+        print("Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
         print("Сокет: \(item.3)")
         print("--------------------------------------------------------")
     }
@@ -283,7 +283,7 @@ case "Intel":
     for (index, item) in cart.enumerated() {
         if item.4 == "Intel" {
             print("---------------------------\(index + 1)---------------------------")
-            print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+            print("Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
             print("--------------------------------------------------------")
         }
     }
@@ -292,7 +292,7 @@ case "AMD":
     for (index, item) in cart.enumerated() {
         if item.4 == "AMD" {
             print("---------------------------\(index + 1)---------------------------")
-            print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+            print("Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
             print("--------------------------------------------------------")
         }
     }
@@ -327,6 +327,8 @@ default:
  
  */
 
+print("\n\n\n\n_________ Home Task 3 _ Part 2: Funtions ________\n\n")
+
 /*
  
  Пункт 2.1
@@ -357,7 +359,19 @@ default:
  
  */
 
+print("\n\nTask 2.1 - Funtions:\n")
 
+func printVideocardsWithIntelProcessor() {
+    print("---------------------Intel-----------------------")
+    for (index, item) in cart.enumerated() {
+        if item.4 == "Intel" {
+            print("\(index + 1) Назва товару: \(item.0)")
+        }
+    }
+    print("--------------------------------------------------")
+}
+
+printVideocardsWithIntelProcessor()
 
 
 /*
@@ -389,8 +403,19 @@ default:
  
  */
 
+print("\n\nTask 2.2 - Funtions:\n")
 
+func printProductInfoWith(maxPrice: Double) {
+    print("---------------------Товари з ціною менше \(maxPrice)-----------------------")
+    for (index, item) in cart.enumerated() {
+        if item.1 <= maxPrice {
+            print("\(index + 1) Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
+        }
+    }
+    print("--------------------------------------------------")
+}
 
+printProductInfoWith(maxPrice: 4500)
 
 
 
@@ -416,9 +441,32 @@ default:
  
  */
 
+print("\n\nTask 2.3 - Funtions:\n")
 
+func print2TheMostExpensiveProductWith(processor: String) {
+    
+    print("---------------------Найдорожчий товар за процесором \(processor)-----------------------")
+    
+    var newArray = [ProductInfo]()
+    var maximum = 0.0
+    
+    cart.enumerated().map {
+        if $1.4 == processor {
+            newArray.append($1)
+        }
+    }
+    
+    newArray.enumerated().map {
+        maximum = newArray.reduce(0.0) { max($0, $1.1) }
+        
+        if $1.1 == maximum {
+            print("Назва товару: \($1.0), Ціна: \(String(format: "%.2f", $1.1)) \($1.2)")
+        }
+    }
+    print("------------------------------------------------------------------------------------")
+}
 
-
+print2TheMostExpensiveProductWith(processor: "AMD")
 
 /*
  
