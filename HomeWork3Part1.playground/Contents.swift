@@ -213,7 +213,7 @@ print("\n\n\n\n_________ Home Task 3 _ Part 1: Потік керування - I
  */
 
 // If / if else
-print("\n\nTask 1.4 - If / if else:\n")
+print("\n\nTask 1.5 - If / if else:\n")
 
 for (index, item) in cart.enumerated() {
     if item.1 < 5000.0 && item.3 == "s1151" {
@@ -233,6 +233,8 @@ for (index, item) in cart.enumerated() {
  - Switch
  
  */
+
+print("\n\n\n\n_________ Home Task 3 _ Part 1: Потік керування - Switch ________\n\n")
 
 /*
  
@@ -270,7 +272,54 @@ for (index, item) in cart.enumerated() {
     
  */
 
+print("\n\nTask 1.6 - Switch:")
+print("Дефолтним значення виводжу сповіщення, щоб зорієнтувати користувача, щодо наявних відеокарт у корзині:\n\n")
 
+let processorStringValue = "AMDn"
+
+switch processorStringValue {
+case "Intel":
+    // друк інформації для товару з процесором Intel
+    for (index, item) in cart.enumerated() {
+        if item.4 == "Intel" {
+            print("---------------------------\(index + 1)---------------------------")
+            print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+            print("--------------------------------------------------------")
+        }
+    }
+case "AMD":
+    // друк інформації для товару з процесором AMD
+    for (index, item) in cart.enumerated() {
+        if item.4 == "AMD" {
+            print("---------------------------\(index + 1)---------------------------")
+            print("Назва товару: \(item.0), Ціна: \(item.1) \(item.2)")
+            print("--------------------------------------------------------")
+        }
+    }
+default:
+    // Така виникла ідея - додати тут перевірку на додані у корзину відеокарти (з якими вони процесорами),
+    // щоб надрукувати повідомлення, якщо користувач буде шукати відеокарту з процессором,
+    // якої немає у корзині на даний момент:
+    var processorsInCart: Set<String> = [] // створюемо сет, щоб зібрати усі не повторювані значення.
+    
+    for item in cart {
+        processorsInCart.insert(item.4) // додаємо у сет назви процесорів з відеокарт,
+                                        // які присутні у корзині
+    }
+    
+    var processorsString = "" // створюємо порожній рядок. щоб потім надрукувати у повідомленні
+
+    for item in processorsInCart {
+        processorsString += "\(item), " // додаємо у рядок значення з сету
+    }
+    // видаляємо зайві коми і пробіли у кінці сформованого рядка
+    processorsString.remove(at: processorsString.index(processorsString.endIndex, offsetBy: -2))
+    
+    // друкуємо повідомлення, якщо користувач, шукатиме у корзині відеокарту з процесором, яку ще не додав
+    // або якої немає в магазині:
+    // інформуємо користувача - відеокарти з якими процесорами присутні наразі у корзині.
+    print("Наразі у кошику лише відеокарти з процесором \(processorsString)- оберіть одну з них для пошуку")
+}
 
 /*
  
