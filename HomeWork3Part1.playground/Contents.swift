@@ -273,7 +273,7 @@ print("\n\n\n\n_________ Home Task 3 _ Part 1: Потік керування - S
  */
 
 print("\n\nTask 1.6 - Switch:")
-//print("Дефолтним значенням виводжу сповіщення, щоб зорієнтувати користувача, щодо наявних відеокарт у корзині:\n\n")
+//print("Дефолтним значенням виводжу сповіщення, щоб зорієнтувати користувача, щодо наявних товарів у кошику:\n\n")
 
 let processorStringValue = "AMDn"
 
@@ -297,14 +297,14 @@ case "AMD":
         }
     }
 default:
-    // Така виникла ідея - додати тут перевірку на додані у корзину відеокарти (з якими вони процесорами),
-    // щоб надрукувати повідомлення, якщо користувач буде шукати відеокарту з процессором,
-    // якої немає у корзині на даний момент:
+    // Така виникла ідея - додати тут перевірку на додані у корзину товари (з якими вони процесорами),
+    // щоб надрукувати повідомлення, якщо користувач буде шукати товар з процессором,
+    // якого немає у кошику на даний момент:
     var processorsInCart: Set<String> = [] // створюемо сет, щоб зібрати усі не повторювані значення.
     
     for item in cart {
         processorsInCart.insert(item.4) // додаємо у сет назви процесорів з відеокарт,
-                                        // які присутні у корзині
+                                        // які присутні у кошику
     }
     
     var processorsString = "" // створюємо порожній рядок. щоб потім надрукувати у повідомленні
@@ -315,11 +315,11 @@ default:
     // видаляємо зайві коми і пробіли у кінці сформованого рядка
     processorsString.remove(at: processorsString.index(processorsString.endIndex, offsetBy: -2))
     
-    // друкуємо повідомлення, якщо користувач, шукатиме у корзині відеокарту з процесором, яку ще не додав
-    // або якої немає в магазині:
-    // інформуємо користувача - відеокарти з якими процесорами присутні наразі у корзині.
+    // друкуємо повідомлення, якщо користувач, шукатиме у кошику товар з процесором, який ще не додав
+    // або якого немає в магазині:
+    // інформуємо користувача - товари з якими процесорами присутні наразі у кошику.
     print("---------------------------Значення не знайдено---------------------------")
-    print("Наразі у кошику лише відеокарти з процесором \(processorsString)- оберіть одну з них для пошуку")
+    print("Наразі у кошику лише товари з процесором \(processorsString)- оберіть одну з них для пошуку")
     print("--------------------------------------------------------------------------")
 }
 
@@ -410,7 +410,9 @@ print("\n\nTask 2.2 - Funtions:\n")
 func printProductInfoWith(maxPrice: Double) {
     print("---------------------Товари з ціною менше \(maxPrice)-----------------------")
     for (index, item) in cart.enumerated() {
-        if item.1 <= maxPrice {
+        if item.1 <= maxPrice { // ставлю знак <=, щоб враховувати вказану максимальну ціну у пошуку
+                                // зазвичай для користувача логічно, коли фільтри враховують вказану суму,
+                                // тож вирішила зробити так.
             print("\(index + 1) Назва товару: \(item.0), Ціна: \(String(format: "%.2f", item.1)) \(item.2)")
         }
     }
@@ -446,7 +448,7 @@ printProductInfoWith(maxPrice: 4500)
 print("\n\nTask 2.3 - Funtions:\n")
 // Not sure that the solution for task 2.3 is the most optimal. Try to improve it or contact a mentor.
 
-func print2TheMostExpensiveProductWith(processor: String) {
+func printTheMostExpensiveProductWith(processor: String) {
     
     print("---------------------Найдорожчий товар за процесором \(processor)-----------------------")
     
@@ -469,7 +471,7 @@ func print2TheMostExpensiveProductWith(processor: String) {
     print("------------------------------------------------------------------------------------")
 }
 
-print2TheMostExpensiveProductWith(processor: "AMD")
+printTheMostExpensiveProductWith(processor: "AMD")
 
 /*
  
@@ -498,8 +500,8 @@ enum ProcessorType: String {
     case amd = "AMD"
 }
 
-let myProcessor: ProcessorType = .intel
-print(myProcessor.rawValue)
+let processorType: ProcessorType = .intel
+print(processorType.rawValue)
 
 print("-----------------------------------------------------")
 
