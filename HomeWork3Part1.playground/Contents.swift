@@ -329,7 +329,7 @@ default:
  
  */
 
-print("\n\n\n\n_________ Home Task 3 _ Part 2: Funtions ________\n\n")
+print("\n\n\n\n_________ Home Task 3 _ Part 2: Functions ________\n\n")
 
 /*
  
@@ -361,7 +361,7 @@ print("\n\n\n\n_________ Home Task 3 _ Part 2: Funtions ________\n\n")
  
  */
 
-print("\n\nTask 2.1 - Funtions:\n")
+print("\n\nTask 2.1 - Functions:\n")
 
 func printVideocardsWithIntelProcessor() {
     print("---------------------Intel-----------------------")
@@ -405,7 +405,7 @@ printVideocardsWithIntelProcessor()
  
  */
 
-print("\n\nTask 2.2 - Funtions:\n")
+print("\n\nTask 2.2 - Functions:\n")
 
 func printProductInfoWith(maxPrice: Double) {
     print("---------------------Товари з ціною менше \(maxPrice)-----------------------")
@@ -445,7 +445,7 @@ printProductInfoWith(maxPrice: 4500)
  
  */
 
-print("\n\nTask 2.3 - Funtions:\n")
+print("\n\nTask 2.3 - Functions:\n")
 // Not sure that the solution for task 2.3 is the most optimal. Try to improve it or contact a mentor.
 
 func printTheMostExpensiveProductWith(processor: String) {
